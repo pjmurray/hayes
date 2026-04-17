@@ -1,9 +1,14 @@
 #!/usr/bin/env node
 // HAYES business cards — Moo Classic US (3.5" × 2").
 //
-// Renders two print-ready PNGs at 2× density (2100 × 1200 px ≈ 600 DPI for a
-// 3.5" × 2" card — more than print needs, ensures crisp upload).  Background
-// is solid bone so Moo's bleed is handled automatically; no guides baked in.
+// Front: HAYES wordmark in upright Fraunces, matching the site masthead
+// exactly (weight 500, opsz 144, letter-spacing +0.02em). This is the
+// identity mark — italic is reserved for expressive voice elsewhere.
+//
+// Back: masthead-style frame. Mono eyebrow + rule + hayes.press URL in
+// upright Fraunces for house-mark consistency.
+//
+// Renders at 2× density (2100 × 1200 px ≈ 600 DPI for 3.5" × 2" card).
 //
 // Usage:  node scripts/generate-cards.mjs
 
@@ -18,13 +23,13 @@ const ASSETS = path.join(ROOT, "assets");
 
 const CARD_W = 1050; // 3.5 inches at 300 DPI
 const CARD_H = 600;  // 2.0 inches at 300 DPI
-const DENSITY = 2;   // 2× for crisp print (output is 2100 × 1200)
+const DENSITY = 2;   // 2× → 2100 × 1200 output
 
 const FONT_LINK = `
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&family=JetBrains+Mono:wght@400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=JetBrains+Mono:wght@400&display=swap"
     rel="stylesheet"
   />
 `;
@@ -52,6 +57,9 @@ const BASE_CSS = `
   }
 `;
 
+// Front: single upright HAYES wordmark. Matches site masthead treatment
+// (Fraunces 500, opsz 144, letter-spacing +0.02em). Caps sit slightly
+// above geometric center, so nudge up a hair for optical centering.
 const FRONT_HTML = `
 <!DOCTYPE html>
 <html lang="en">
@@ -62,16 +70,13 @@ const FRONT_HTML = `
     ${BASE_CSS}
     .wordmark {
       font-family: 'Fraunces', serif;
-      font-style: italic;
-      font-weight: 400;
-      font-variation-settings: 'opsz' 144, 'SOFT' 100;
-      font-size: 138px;
-      letter-spacing: -0.018em;
+      font-weight: 500;
+      font-variation-settings: 'opsz' 144;
+      font-size: 150px;
+      letter-spacing: 0.02em;
       color: #141414;
       white-space: nowrap;
-      /* The italic slant shifts optical center right; compensate slightly.
-         Visual center of caps sits above geometric center, so nudge up. */
-      transform: translate(calc(-50% - 6px), calc(-50% - 8px));
+      transform: translate(-50%, calc(-50% - 8px));
     }
   </style>
 </head>
@@ -81,6 +86,9 @@ const FRONT_HTML = `
 </html>
 `;
 
+// Back: eyebrow + rule + hayes.press. Stacked with generous gaps.
+// hayes.press in upright Fraunces (not italic) to mirror the nav
+// wordmark treatment — wider tracking at the smaller size.
 const BACK_HTML = `
 <!DOCTYPE html>
 <html lang="en">
@@ -93,28 +101,28 @@ const BACK_HTML = `
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 44px;
+      gap: 40px;
     }
     .eyebrow {
       font-family: 'JetBrains Mono', monospace;
       font-size: 13px;
-      letter-spacing: 0.28em;
+      letter-spacing: 0.32em;
       text-transform: uppercase;
       color: #8A857A;
       white-space: nowrap;
     }
     .rule {
-      width: 22px;
+      width: 26px;
       height: 1px;
       background: #8A857A;
       opacity: 0.55;
     }
     .url {
       font-family: 'Fraunces', serif;
-      font-style: italic;
-      font-weight: 400;
+      font-weight: 500;
       font-variation-settings: 'opsz' 72;
-      font-size: 42px;
+      font-size: 44px;
+      letter-spacing: 0.01em;
       color: #141414;
       white-space: nowrap;
     }
@@ -143,7 +151,6 @@ async function render(html, outPath) {
       deviceScaleFactor: DENSITY,
     });
     await page.setContent(html, { waitUntil: "networkidle0" });
-    // Extra wait so webfonts fully settle before screenshot.
     await page.evaluate(() => document.fonts.ready);
     await page.screenshot({
       path: outPath,

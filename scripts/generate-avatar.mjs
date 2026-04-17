@@ -23,14 +23,15 @@ const FONT_LINK = `
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&display=swap"
     rel="stylesheet"
   />
 `;
 
-// Single italic H, centered. Optical compensation for italic lean
-// (shifts visual center slightly right of geometric center) and for
-// cap height (shifts visual center slightly above geometric center).
+// Single upright H, centered. Matches the site masthead treatment
+// (Fraunces 500, opsz 144, letter-spacing +0.02em) so the avatar reads
+// as the identity mark. Cap-height pushes visual center slightly above
+// geometric center — nudge up to compensate.
 const AVATAR_HTML = `
 <!DOCTYPE html>
 <html lang="en">
@@ -55,16 +56,14 @@ const AVATAR_HTML = `
       top: 50%;
       left: 50%;
       font-family: 'Fraunces', serif;
-      font-style: italic;
-      font-weight: 400;
-      font-variation-settings: 'opsz' 144, 'SOFT' 100;
+      font-weight: 500;
+      font-variation-settings: 'opsz' 144;
       font-size: 720px;
       line-height: 1;
-      letter-spacing: -0.02em;
+      letter-spacing: 0.02em;
       color: #141414;
-      /* Offset: italic lean pushes optical center right; cap-height bias
-         pushes it up. Compensate both. */
-      transform: translate(calc(-50% - 8px), calc(-50% - 14px));
+      /* cap-height pushes visual center up — nudge down to compensate */
+      transform: translate(-50%, calc(-50% - 28px));
     }
   </style>
 </head>
