@@ -1,0 +1,1830 @@
+/* =========================================================
+   HAYES — A Season of Conviction
+   Single-page brand site
+   ========================================================= */
+
+:root {
+  --bone: #F4F0E8;
+  --ink: #141414;
+  --mist: #8A8680;
+  --divider: #E4DFD6;
+  --ink-bg: #0E0D0B;
+  --bone-on-ink: #E8E2D6;
+  --mist-on-ink: #5C5850;
+
+  --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --sans: 'General Sans', 'Inter', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --pad-x: clamp(24px, 6vw, 96px);
+  --section-y: clamp(120px, 18vh, 200px);
+  --container-max: 1200px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--bone);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.65;
+  font-weight: 400;
+}
+
+/* =========================================================
+   Nav
+   ========================================================= */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--bone);
+  border-bottom: 1px solid var(--divider);
+  transform: translateY(-100%);
+  transition: transform 420ms cubic-bezier(0.33, 1, 0.68, 1);
+  will-change: transform;
+}
+
+.nav.is-visible {
+  transform: translateY(0);
+}
+
+.nav-inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 32px;
+  padding: 20px var(--pad-x);
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.wordmark {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  text-decoration: none;
+  justify-self: center;
+}
+
+.lang {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  justify-self: start;
+}
+
+.nav-index {
+  border: none;
+  background: transparent;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  justify-self: end;
+  cursor: pointer;
+  padding: 4px 0;
+  transition: color 200ms ease;
+}
+
+.nav-index::after {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 1px;
+  background: currentColor;
+  margin-left: 10px;
+  vertical-align: middle;
+  transition: width 260ms cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+.nav-index:hover::after { width: 28px; }
+
+/* =========================================================
+   Section base
+   ========================================================= */
+
+main > section {
+  padding: var(--section-y) 0;
+}
+
+.section-eyebrow {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--mist);
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.placeholder-label {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  color: var(--mist);
+  user-select: none;
+}
+
+/* =========================================================
+   Masthead — newspaper plate above the hero
+   ========================================================= */
+
+main > section.masthead {
+  padding: clamp(28px, 4vw, 56px) var(--pad-x) clamp(20px, 3vw, 36px);
+  max-width: none;
+}
+
+.masthead-rule {
+  height: 1px;
+  background: var(--ink);
+  width: 100%;
+}
+
+.masthead-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: clamp(16px, 4vw, 64px);
+  padding: clamp(18px, 2.4vw, 36px) 0;
+}
+
+.masthead-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.masthead-tag--left {
+  justify-self: start;
+}
+
+.masthead-tag--right {
+  justify-self: end;
+  text-align: right;
+}
+
+.masthead-wordmark {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(76px, 16vw, 240px);
+  font-variation-settings: 'opsz' 144;
+  letter-spacing: 0.02em;
+  line-height: 0.88;
+  color: var(--ink);
+  white-space: nowrap;
+  text-align: center;
+}
+
+.masthead-strap {
+  padding-top: clamp(14px, 1.6vw, 22px);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mist);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  align-items: center;
+}
+
+.masthead-strap-dot {
+  color: var(--divider);
+}
+
+@media (max-width: 720px) {
+  .masthead-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    text-align: center;
+  }
+  .masthead-tag {
+    flex-direction: row;
+    gap: 10px;
+    justify-self: center !important;
+    text-align: center !important;
+  }
+  .masthead-wordmark {
+    font-size: clamp(72px, 22vw, 120px);
+  }
+}
+
+/* =========================================================
+   Hero
+   ========================================================= */
+
+main > section.hero {
+  padding: 0;
+  position: relative;
+  /* Bone runway below image so "Conviction." can straddle the edge. */
+  padding-bottom: clamp(120px, 14vw, 240px);
+  overflow: visible;
+}
+
+.hero-image {
+  width: 100%;
+  height: clamp(560px, 78vh, 880px);
+  background: #D4CEC0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-corner {
+  position: absolute;
+  display: flex;
+  gap: 20px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  z-index: 2;
+}
+
+.hero-corner-tr {
+  top: 32px;
+  right: var(--pad-x);
+  flex-direction: column;
+  gap: 6px;
+  text-align: right;
+}
+
+.hero-corner-bl {
+  top: 32px;
+  left: var(--pad-x);
+  align-items: center;
+}
+
+.hero-corner-rule {
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  background: var(--ink);
+}
+
+/* Headline straddles the bottom edge of the image.
+   White text + mix-blend-mode: difference stays legible on both
+   the image (inverts with content) and the bone background. */
+.hero-headline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  /* Tuned so "A Season" + "of" ride on the image and "Conviction."
+     crosses the image/bone edge — its vertical centre sits roughly
+     on the seam. Anchored from the SECTION's bottom (which extends
+     past the image by padding-bottom). */
+  bottom: clamp(40px, 5.5vw, 110px);
+  margin: 0;
+  padding: 0 var(--pad-x);
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(76px, 12.5vw, 220px);
+  font-variation-settings: 'opsz' 144;
+  line-height: 0.80;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.hero-headline > span {
+  display: block;
+}
+
+.hero-headline-accent {
+  padding-left: clamp(80px, 14vw, 260px);
+  font-style: italic;
+  font-weight: 500;
+  font-variation-settings: 'opsz' 144;
+  letter-spacing: -0.02em;
+}
+
+.hero-headline-accent em {
+  font-style: italic;
+}
+
+.hero-headline-drop {
+  /* The word that actually crosses the image/bone boundary. */
+  letter-spacing: -0.04em;
+}
+
+.hero-stop {
+  /* Italic period — visual signature. */
+  font-style: italic;
+  font-weight: 400;
+  margin-left: 0.04em;
+}
+
+@media (max-width: 720px) {
+  .hero-corner {
+    font-size: 9.5px;
+    gap: 12px;
+  }
+  .hero-corner-tr {
+    top: 24px;
+  }
+  .hero-corner-bl {
+    top: 24px;
+  }
+  .hero-headline {
+    line-height: 0.88;
+  }
+  .hero-headline-accent {
+    padding-left: 36px;
+  }
+}
+
+/* =========================================================
+   Manifesto — one line, display scale. The premise, stated.
+   ========================================================= */
+
+.manifesto {
+  text-align: center;
+}
+
+.manifesto-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+}
+
+.manifesto-line {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-variation-settings: 'opsz' 144;
+  font-size: clamp(36px, 5.2vw, 72px);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  max-width: 22ch;
+  margin: 0 auto;
+  text-wrap: balance;
+}
+
+.manifesto-coda-line {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-variation-settings: 'opsz' 72;
+  font-size: clamp(18px, 1.6vw, 22px);
+  line-height: 1.55;
+  color: var(--mist);
+  max-width: 44ch;
+  margin: clamp(36px, 4.5vw, 56px) auto 0;
+  text-wrap: balance;
+}
+
+/* =========================================================
+   Interstitial — typographic breath between movements.
+   Kinfolk / The Gentlewoman pacing: a room with one sentence in it.
+   ========================================================= */
+
+.interstitial {
+  padding: clamp(96px, 14vh, 160px) var(--pad-x);
+  text-align: center;
+}
+
+.interstitial p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-variation-settings: 'opsz' 96;
+  font-size: clamp(28px, 3.6vw, 48px);
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+  color: var(--mist);
+  max-width: 18ch;
+  margin: 0 auto;
+  text-wrap: balance;
+}
+
+@media (max-width: 520px) {
+  .interstitial p br {
+    display: none;
+  }
+}
+
+/* =========================================================
+   Collection
+   ========================================================= */
+
+/* Hero → Manifesto: the hero's bone runway already gives the headline
+   room to breathe, so don't stack a full section-y on top of it. */
+main > section.manifesto {
+  padding-top: clamp(72px, 9vh, 120px);
+  padding-bottom: clamp(56px, 8vh, 96px);
+}
+
+main > section.collection {
+  padding-top: clamp(56px, 8vh, 96px);
+}
+
+/* The collection eyebrow is a two-sentence campaign note, not a tag —
+   tracked uppercase is punishment at this length. Render as italic serif
+   prose, narrow column, centered. Reads as a photographer's caption. */
+.collection-eyebrow {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(14px, 1.2vw, 16px);
+  line-height: 1.55;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--mist);
+  text-align: center;
+  max-width: 60ch;
+  margin: 0 auto clamp(72px, 10vh, 120px);
+  padding: 0 var(--pad-x);
+  font-variation-settings: 'opsz' 48;
+  text-wrap: balance;
+}
+
+.look {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: clamp(32px, 4.5vw, 72px);
+  margin-bottom: clamp(120px, 14vw, 200px);
+  align-items: start;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 var(--pad-x);
+}
+
+.look:last-child {
+  margin-bottom: 0;
+}
+
+/* Alternate image / card placement — image right on even-numbered looks.
+   Column sizes flip so the image always occupies the wider track. */
+/* Alternating layout — image right on even-indexed looks.
+   Desktop only; mobile falls back to single-column stack. */
+@media (min-width: 861px) {
+  .look:nth-child(even) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr);
+  }
+  .look:nth-child(even) .look-image { grid-column: 2; grid-row: 1; }
+  .look:nth-child(even) .look-card  { grid-column: 1; grid-row: 1; }
+}
+
+.look-image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background: #D4CEC0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform 400ms ease-out;
+}
+
+@media (max-width: 860px) {
+  .look {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.look-image:hover {
+  transform: scale(1.005);
+}
+
+.look-image img,
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  display: block;
+}
+
+/* Tint placeholder differently per look so visual rhythm previews even without real images */
+.look-image[data-look="01"] { background: #E8D8A8; }
+.look-image[data-look="02"] { background: #C9C4B8; }
+.look-image[data-look="03"] { background: #9C7C82; }
+.look-image[data-look="04"] { background: #BCAE9A; }
+.look-image[data-look="05"] { background: #2B3A44; }
+.look-image[data-look="06"] { background: #8A5344; }
+.look-image[data-look="07"] { background: #4E4F4C; }
+.look-image[data-look="08"] { background: #B5A685; }
+
+.look-image[data-look="05"] .placeholder-label,
+.look-image[data-look="03"] .placeholder-label,
+.look-image[data-look="06"] .placeholder-label,
+.look-image[data-look="07"] .placeholder-label {
+  color: rgba(244, 240, 232, 0.5);
+}
+
+.hero-image {
+  background: #E8D8A8;
+}
+
+.look-card {
+  padding-top: clamp(12px, 2vw, 32px);
+  position: sticky;
+  top: 92px;
+  align-self: start;
+}
+
+.look-number {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mist);
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--divider);
+}
+
+.look-name {
+  font-family: var(--serif);
+  font-size: clamp(42px, 5vw, 72px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 0.95;
+  margin: 0 0 36px;
+  letter-spacing: -0.02em;
+  font-variation-settings: 'opsz' 144;
+  color: var(--ink);
+}
+
+@media (max-width: 860px) {
+  .look-card {
+    position: static;
+    padding-top: 0;
+  }
+}
+
+.look-garments {
+  margin-bottom: 28px;
+}
+
+.look-garments p {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--ink);
+}
+
+.look-caption {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 28px 0;
+  padding: 0;
+  border: 0;
+  font-variation-settings: 'opsz' 72;
+}
+
+.look-location {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mist);
+  margin-bottom: 48px;
+}
+
+/* Model card */
+
+.model-card {
+  padding: 32px 0 0;
+  border-top: 1px solid var(--divider);
+}
+
+.model-eyebrow {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mist);
+  margin-bottom: 16px;
+}
+
+.model-card p {
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+
+.model-name {
+  font-weight: 500;
+}
+
+.model-sizing {
+  margin-top: 12px;
+  color: var(--mist);
+}
+
+.model-note {
+  margin-top: 12px;
+  color: var(--ink);
+  font-style: italic;
+  font-family: var(--serif);
+  font-size: 14px;
+  font-variation-settings: 'opsz' 14;
+}
+
+/* =========================================================
+   The Collection — a wanky gatekeepy bridge between the lookbook
+   and the store. Sits tight against both — chapter-mark treatment.
+   ========================================================= */
+
+main > section.note {
+  padding-top: clamp(72px, 10vh, 128px);
+  padding-bottom: clamp(72px, 10vh, 128px);
+  text-align: center;
+  position: relative;
+}
+
+main > section.note::before,
+main > section.note::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 1px;
+  background: var(--ink);
+}
+
+main > section.note::before { top: 0; }
+main > section.note::after  { bottom: 0; }
+
+.note-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+}
+
+.note-inner .section-eyebrow {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.note-lede {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.2vw, 28px);
+  line-height: 1.4;
+  font-variation-settings: 'opsz' 72;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  max-width: 30ch;
+  margin: 0 auto clamp(28px, 3vw, 40px);
+  /* Let the browser pick aesthetically balanced line breaks — avoids
+     the "not a / catalogue." orphan by preferring the comma breakpoint. */
+  text-wrap: balance;
+}
+
+.note-inner > p:not(.note-lede):not(.note-coda) {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(15px, 1.2vw, 17px);
+  line-height: 1.75;
+  font-variation-settings: 'opsz' 48;
+  color: #2a2722;
+  max-width: 92ch;
+  margin: 0 auto;
+}
+
+.note-coda {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(14px, 1.1vw, 16px);
+  line-height: 1.6;
+  color: var(--mist);
+  margin: clamp(28px, 3vw, 40px) auto 0;
+  font-variation-settings: 'opsz' 48;
+}
+
+.note-antecedents {
+  margin: clamp(48px, 5vw, 64px) auto 0;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.note-antecedents a {
+  color: var(--mist);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  transition: color 200ms ease;
+}
+.note-antecedents a:hover { color: var(--ink); }
+
+/* Don't double up the gap between the note and the store — the note's
+   bottom hairline already does the chapter-mark work. */
+main > section.note + section.availability {
+  padding-top: clamp(72px, 10vh, 128px);
+}
+
+/* =========================================================
+   Availability (store)
+   ========================================================= */
+
+.availability-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+}
+
+.availability-title {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(32px, 4vw, 48px);
+  font-variation-settings: 'opsz' 72;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  margin: 0 0 20px;
+  color: var(--ink);
+}
+
+.availability-lede {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--mist);
+  max-width: 520px;
+  margin: 0 0 56px;
+  font-variation-settings: 'opsz' 72;
+}
+
+.products {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 72px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 32px;
+  row-gap: 72px;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  cursor: pointer;
+}
+
+.product-image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background: #EEE9DD;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition:
+    filter 600ms cubic-bezier(0.2, 0.6, 0.2, 1),
+    opacity 600ms cubic-bezier(0.2, 0.6, 0.2, 1),
+    transform 900ms cubic-bezier(0.2, 0.6, 0.2, 1);
+  will-change: filter, transform;
+}
+
+/* Spotlight: hovering the grid fades siblings to grayscale,
+   keeps the hovered tile in full color with a gentle lift. */
+@media (hover: hover) {
+  .products:hover .product-image img {
+    filter: grayscale(1) contrast(1.02) brightness(0.94);
+    opacity: 0.62;
+  }
+  .products:hover .product:hover .product-image img {
+    filter: grayscale(0) contrast(1) brightness(1);
+    opacity: 1;
+    transform: scale(1.012);
+  }
+}
+
+.product-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.product-name {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 22px;
+  font-variation-settings: 'opsz' 72;
+  letter-spacing: -0.005em;
+  line-height: 1;
+  margin: 0;
+  color: var(--ink);
+}
+
+.product-price {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  white-space: nowrap;
+  font-feature-settings: 'tnum' 1;
+}
+
+.product-spec {
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--mist);
+  margin: 0;
+}
+
+.product-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.product-sku {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mist);
+  word-break: break-all;
+}
+
+.product-status {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--divider);
+  padding: 5px 10px;
+  border-radius: 2px;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background 300ms ease, border-color 300ms ease, color 300ms ease;
+  /* Stack both states in the same grid cell so the pill sizes to
+     the wider of "Sold out" vs "Join waitlist →". */
+  display: inline-grid;
+  grid-template-areas: "stack";
+  align-items: center;
+  justify-items: center;
+  transition:
+    background 300ms cubic-bezier(0.2, 0.6, 0.2, 1),
+    color 300ms cubic-bezier(0.2, 0.6, 0.2, 1),
+    border-color 300ms cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+.product-status .status-default,
+.product-status .status-hover {
+  grid-area: stack;
+  transition: transform 350ms cubic-bezier(0.2, 0.6, 0.2, 1),
+              opacity 250ms ease;
+}
+
+.product-status .status-hover {
+  transform: translateY(120%);
+  opacity: 0;
+}
+
+@media (hover: hover) {
+  .product:hover .product-status {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--bone);
+  }
+  .product:hover .status-default {
+    transform: translateY(-120%);
+    opacity: 0;
+  }
+  .product:hover .status-hover {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 860px) {
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 24px;
+    row-gap: 56px;
+  }
+}
+
+@media (max-width: 520px) {
+  .products {
+    grid-template-columns: 1fr;
+    row-gap: 48px;
+  }
+  .product-image {
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* =========================================================
+   Atelier
+   ========================================================= */
+
+/* Availability → Atelier: tighten the seam and carry the chapter-mark
+   hairline across the transition. */
+main > section.availability {
+  padding-bottom: clamp(72px, 10vh, 120px);
+}
+
+main > section.atelier {
+  padding-top: clamp(56px, 8vh, 96px);
+  position: relative;
+}
+
+main > section.atelier::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 1px;
+  background: var(--ink);
+}
+
+.atelier-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+}
+
+.atelier-lede {
+  font-family: var(--serif);
+  font-style: italic;
+  font-variation-settings: 'opsz' 72;
+  font-size: clamp(17px, 1.45vw, 21px);
+  line-height: 1.6;
+  color: var(--ink);
+  max-width: 52ch;
+  margin: 0 0 clamp(40px, 5vw, 64px);
+  text-wrap: balance;
+}
+
+.atelier ul {
+  list-style: none;
+}
+
+.atelier li {
+  padding: 20px 0;
+  border-top: 1px solid var(--divider);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.atelier li:last-child {
+  border-bottom: 1px solid var(--divider);
+}
+
+/* =========================================================
+   AFTER — inverted palette
+   ========================================================= */
+
+.after {
+  background: var(--ink-bg);
+  color: var(--bone-on-ink);
+}
+
+.after-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+  text-align: center;
+}
+
+.after-eyebrow {
+  color: var(--mist-on-ink);
+  margin-bottom: 16px;
+}
+
+.after-title {
+  font-family: var(--serif);
+  font-size: clamp(56px, 9vw, 88px);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  color: var(--bone-on-ink);
+  margin-bottom: 80px;
+  font-variation-settings: 'opsz' 144;
+}
+
+.after-image {
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 4 / 5;
+  background: #0A0908;
+  margin: 0 auto 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.after-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.after-image .placeholder-label {
+  color: rgba(130, 120, 105, 0.4);
+}
+
+.after-copy {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.after-copy p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.75;
+  margin-bottom: 20px;
+  color: var(--bone-on-ink);
+  font-variation-settings: 'opsz' 72;
+}
+
+.after-lede {
+  font-size: clamp(24px, 2.6vw, 34px) !important;
+  line-height: 1.35 !important;
+  font-variation-settings: 'opsz' 96 !important;
+  max-width: 22ch;
+  margin: 0 auto !important;
+  text-wrap: balance;
+  letter-spacing: -0.005em;
+}
+
+.after-copy p em {
+  font-style: italic;
+}
+
+.after-dates {
+  margin-top: 40px;
+  font-size: 13px !important;
+  line-height: 1.8 !important;
+  color: var(--mist-on-ink) !important;
+  font-style: normal !important;
+  font-family: var(--sans) !important;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+/* =========================================================
+   Appointments
+   ========================================================= */
+
+.appointments-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: clamp(40px, 6vw, 96px);
+  align-items: center;
+}
+
+.appointments-image {
+  position: relative;
+}
+
+.appointments-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.appointments-image-caption {
+  margin-top: 16px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mist);
+}
+
+.appointments-copy {
+  max-width: 420px;
+}
+
+.appointments-lede {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(28px, 2.8vw, 40px);
+  font-variation-settings: 'opsz' 72;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-top: 24px;
+  margin-bottom: clamp(32px, 4vw, 48px);
+}
+
+.appointments-detail {
+  padding-top: 18px;
+  margin-top: 18px;
+  border-top: 1px solid var(--divider);
+}
+
+.appointments-detail:first-of-type {
+  border-top: 1px solid var(--ink);
+}
+
+.appointments-detail p {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+
+.appointments-contact {
+  margin-top: clamp(32px, 4vw, 48px);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.appointments-contact a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 3px;
+}
+
+.appointments a {
+  color: var(--ink);
+}
+
+@media (max-width: 860px) {
+  .appointments-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(32px, 5vw, 48px);
+  }
+  .appointments-copy {
+    max-width: none;
+  }
+}
+
+/* =========================================================
+   Footer
+   ========================================================= */
+
+footer {
+  background: var(--bone);
+  border-top: 1px solid var(--divider);
+  padding: 64px 0 32px;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 48px;
+  padding: 0 var(--pad-x);
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.footer-col p {
+  font-family: var(--mono);
+  font-size: 10px;
+  line-height: 1.9;
+  color: var(--mist);
+  letter-spacing: 0.02em;
+}
+
+.footer-col-right {
+  text-align: right;
+}
+
+.footer-bottom {
+  grid-column: 1 / -1;
+  padding-top: 48px;
+  margin-top: 48px;
+  border-top: 1px solid var(--divider);
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--mist);
+  letter-spacing: 0.16em;
+}
+
+/* The house's closing line — italic serif, ink, breathing room.
+   Sits above the copyright as a quiet final note. */
+.footer-bottom p.footer-closer {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(14px, 1.3vw, 17px);
+  letter-spacing: 0;
+  color: var(--ink);
+  text-transform: none;
+  line-height: 1.5;
+  margin: 0 auto 20px;
+  max-width: 44ch;
+  text-wrap: balance;
+  font-variation-settings: 'opsz' 72;
+}
+
+.footer-bottom p.footer-email {
+  margin: 0 auto 28px;
+}
+
+.footer-bottom p.footer-email a {
+  color: var(--mist);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.footer-bottom p.footer-email a:hover {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+
+/* =========================================================
+   Fade-in on scroll
+   ========================================================= */
+
+@media (prefers-reduced-motion: no-preference) {
+  .fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 800ms cubic-bezier(0.2, 0.6, 0.2, 1),
+                transform 800ms cubic-bezier(0.2, 0.6, 0.2, 1);
+    will-change: opacity, transform;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   Mobile
+   ========================================================= */
+
+@media (max-width: 860px) {
+  .nav-inner {
+    grid-template-columns: 1fr auto 1fr;
+    gap: 16px;
+  }
+
+  .wordmark {
+    font-size: 18px;
+  }
+
+  .lang,
+  .nav-index {
+    font-size: 10px;
+  }
+
+  .nav-index::after { width: 10px; margin-left: 6px; }
+
+  .hero-caption {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    bottom: 32px;
+    text-align: center;
+    padding: 0 24px;
+  }
+
+  .look-image {
+    max-width: 100%;
+    margin: 0 var(--pad-x);
+    width: calc(100% - var(--pad-x) * 2);
+  }
+
+  .look-name {
+    font-size: 36px;
+  }
+
+  .look {
+    margin-bottom: 140px;
+  }
+
+  .after-title {
+    font-size: 56px;
+  }
+
+  .after-image {
+    max-width: calc(100% - 48px);
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-col-right {
+    text-align: left;
+  }
+
+  .footer-bottom {
+    padding-top: 32px;
+    margin-top: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   Selection & focus
+   ========================================================= */
+
+::selection {
+  background: var(--ink);
+  color: var(--bone);
+}
+
+.after ::selection {
+  background: var(--bone-on-ink);
+  color: var(--ink-bg);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 1px solid var(--ink);
+  outline-offset: 4px;
+}
+
+/* =========================================================
+   Waitlist Takeover — fullscreen, bone, monastic.
+   Fades the entire page to nothing and emerges a single
+   italic prompt + hairline email input. One thing to do.
+   ========================================================= */
+
+body.takeover-open {
+  overflow: hidden;
+}
+
+.takeover {
+  position: fixed;
+  inset: 0;
+  background: var(--bone);
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 520ms cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+.takeover.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.takeover-inner {
+  text-align: center;
+  max-width: 640px;
+  width: 100%;
+  padding: 0 var(--pad-x);
+  opacity: 0;
+  transform: translateY(12px);
+  /* Wait for the backdrop to fully settle (520ms) before emerging —
+     the page dissolves, then a beat, then the message. */
+  transition: opacity 800ms cubic-bezier(0.2, 0.6, 0.2, 1) 560ms,
+              transform 800ms cubic-bezier(0.2, 0.6, 0.2, 1) 560ms;
+}
+
+.takeover.is-open .takeover-inner {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.takeover-eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mist);
+  margin: 0 0 40px;
+}
+
+.takeover-title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(44px, 7vw, 88px);
+  font-variation-settings: 'opsz' 144, 'SOFT' 100;
+  letter-spacing: -0.02em;
+  line-height: 1.0;
+  color: var(--ink);
+  margin: 0 0 clamp(36px, 4.5vw, 56px);
+}
+
+/* Flex, not grid — guarantees input and submit arrow stay on one row
+   regardless of viewport or content. The shared border-bottom is the
+   visual anchor. */
+.takeover-form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 440px;
+  margin: 0 auto clamp(28px, 3.5vw, 40px);
+  border-bottom: 1px solid var(--ink);
+  transition: border-color 200ms ease;
+}
+
+.takeover-input {
+  border: none;
+  background: transparent;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(18px, 1.8vw, 22px);
+  font-variation-settings: 'opsz' 72;
+  line-height: 1.4;
+  text-align: center;
+  padding: 14px 0;
+  color: var(--ink);
+  outline: none;
+  width: 100%;
+}
+
+.takeover-input::placeholder {
+  color: var(--mist);
+  font-style: italic;
+  opacity: 1;
+}
+
+.takeover-submit {
+  border: none;
+  background: transparent;
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1;
+  color: var(--ink);
+  padding: 14px 8px;
+  cursor: pointer;
+  transition: transform 250ms cubic-bezier(0.2, 0.6, 0.2, 1), opacity 200ms ease;
+}
+
+.takeover-submit:hover {
+  transform: translateX(4px);
+}
+
+.takeover-coda {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--mist);
+  max-width: 40ch;
+  margin: 0 auto;
+  font-variation-settings: 'opsz' 48;
+}
+
+.takeover-success {
+  font-family: var(--serif);
+  font-size: clamp(20px, 2vw, 26px);
+  line-height: 1.4;
+  color: var(--ink);
+  margin: 0;
+  font-variation-settings: 'opsz' 72;
+}
+
+/* Appointment-only note. Shares the italic serif register and the same
+   hairline underline treatment as the email input. */
+.takeover-note-wrap {
+  max-width: 440px;
+  margin: 0 auto clamp(24px, 3vw, 32px);
+}
+
+.takeover-note {
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--ink);
+  background: transparent;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(16px, 1.6vw, 19px);
+  font-variation-settings: 'opsz' 72;
+  line-height: 1.5;
+  text-align: center;
+  padding: 12px 0;
+  color: var(--ink);
+  outline: none;
+  resize: none;
+}
+
+.takeover-note::placeholder {
+  color: var(--mist);
+  font-style: italic;
+  opacity: 1;
+}
+
+.takeover-error {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--mist);
+  max-width: 44ch;
+  margin: 20px auto 0;
+  font-variation-settings: 'opsz' 48;
+}
+
+.takeover-close {
+  position: absolute;
+  top: clamp(20px, 3vh, 40px);
+  right: clamp(20px, 3vw, 40px);
+  border: none;
+  background: transparent;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mist);
+  cursor: pointer;
+  padding: 8px;
+  transition: color 200ms ease;
+}
+
+.takeover-close:hover {
+  color: var(--ink);
+}
+
+/* Quiet instruction in the margin — like a museum wall plate.
+   Fades in with the takeover content but sits absolutely at the
+   bottom so it never competes with the centered composition. */
+.takeover-hint {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: clamp(24px, 4vh, 44px);
+  margin: 0;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mist);
+  opacity: 0;
+  transition: opacity 600ms ease 800ms;
+}
+
+.takeover.is-open .takeover-hint {
+  opacity: 0.6;
+}
+
+.takeover-hint kbd {
+  font-family: var(--mono);
+  font-size: inherit;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  margin: 0 2px;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  color: var(--ink);
+  opacity: 0.7;
+}
+
+@media (max-width: 520px) {
+  .takeover-title {
+    font-size: clamp(36px, 11vw, 56px);
+  }
+  .takeover-form {
+    max-width: 100%;
+  }
+  .takeover-hint {
+    font-size: 9px;
+    bottom: 20px;
+  }
+}
+
+/* =========================================================
+   Drawer — Index overlay
+   ========================================================= */
+
+body.drawer-open { overflow: hidden; }
+
+.drawer {
+  position: fixed;
+  inset: 0;
+  background: var(--bone);
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 520ms cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+.drawer.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.drawer-inner {
+  text-align: center;
+  max-width: 720px;
+  width: 100%;
+  padding: 0 var(--pad-x);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 700ms cubic-bezier(0.2, 0.6, 0.2, 1) 360ms,
+              transform 700ms cubic-bezier(0.2, 0.6, 0.2, 1) 360ms;
+}
+
+.drawer.is-open .drawer-inner {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.drawer-eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mist);
+  margin: 0 0 clamp(32px, 4vw, 48px);
+}
+
+.drawer-title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(56px, 9vw, 120px);
+  font-variation-settings: 'opsz' 144, 'SOFT' 100;
+  letter-spacing: -0.02em;
+  line-height: 1.0;
+  color: var(--ink);
+  margin: 0 0 clamp(44px, 5vw, 72px);
+}
+
+.drawer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(10px, 1.2vw, 18px);
+}
+
+.drawer-links a {
+  display: grid;
+  grid-template-columns: 36px auto;
+  align-items: baseline;
+  column-gap: clamp(18px, 2vw, 28px);
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(28px, 3.4vw, 44px);
+  font-variation-settings: 'opsz' 96;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 6px 0;
+  transition: color 220ms ease;
+}
+
+.drawer-links a:hover .drawer-link-name {
+  font-style: italic;
+}
+
+.drawer-link-num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-variation-settings: 'opsz' 48;
+  font-size: clamp(14px, 1.2vw, 18px);
+  color: var(--mist);
+  text-align: right;
+  justify-self: end;
+  letter-spacing: 0;
+}
+
+.drawer-link-name {
+  text-align: left;
+  justify-self: start;
+  transition: font-style 180ms ease;
+}
+
+.drawer-links a[aria-current="page"] .drawer-link-name {
+  font-style: italic;
+  color: var(--ink);
+}
+
+.drawer-close {
+  position: absolute;
+  top: clamp(20px, 3vh, 40px);
+  right: clamp(20px, 3vw, 40px);
+  border: none;
+  background: transparent;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mist);
+  cursor: pointer;
+  padding: 8px;
+  transition: color 200ms ease;
+}
+
+.drawer-close:hover { color: var(--ink); }
+
+.drawer-hint {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: clamp(24px, 4vh, 44px);
+  margin: 0;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mist);
+  opacity: 0;
+  transition: opacity 600ms ease 800ms;
+}
+
+.drawer.is-open .drawer-hint { opacity: 0.6; }
+
+.drawer-hint kbd {
+  font-family: var(--mono);
+  font-size: inherit;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  margin: 0 2px;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  color: var(--ink);
+  opacity: 0.7;
+}
+
+@media (max-width: 520px) {
+  .drawer-title { font-size: clamp(44px, 13vw, 72px); }
+  .drawer-links a {
+    grid-template-columns: 24px auto;
+    column-gap: 14px;
+    font-size: clamp(22px, 6vw, 30px);
+  }
+  .drawer-link-num { font-size: 12px; }
+  .drawer-hint { font-size: 9px; bottom: 20px; }
+}

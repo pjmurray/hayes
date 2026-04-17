@@ -1,0 +1,12 @@
+{
+  "name": "hayes-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "HAYES — static site with serverless inquiry endpoint.",
+  "dependencies": {
+    "resend": "^4.0.0"
+  },
+  "devDependencies": {
+    "puppeteer": "^24.41.0"
+  }
+}
