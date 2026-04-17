@@ -1,0 +1,201 @@
+/* =========================================================
+   HAYES — Japanese typography overlay
+   Applied to pages with <html lang="ja">.
+   Base typography stays bone-on-ink; only type changes.
+   ========================================================= */
+
+:root {
+  --serif-ja: 'Shippori Mincho', 'Noto Serif JP', 'Yu Mincho', 'YuMincho', serif;
+  --sans-ja: 'Noto Sans JP', var(--sans);
+}
+
+/* Body — Japanese mincho, looser line-height for CJK density. */
+html[lang="ja"] body {
+  font-family: var(--serif-ja);
+  font-size: 16px;
+  line-height: 1.95;
+  letter-spacing: 0.02em;
+  font-feature-settings: "palt" 1; /* proportional alternate metrics for JP */
+}
+
+html[lang="ja"] p {
+  line-height: 1.95;
+  letter-spacing: 0.03em;
+}
+
+/* Fraunces kept for the HAYES wordmark and roman numerals. */
+html[lang="ja"] .wordmark,
+html[lang="ja"] .masthead-wordmark {
+  font-family: var(--serif);
+  letter-spacing: 0.02em;
+}
+
+/* Monospace tags stay monospace — they carry Latin content. */
+html[lang="ja"] .masthead-tag,
+html[lang="ja"] .masthead-strap,
+html[lang="ja"] .hero-corner,
+html[lang="ja"] .look-number,
+html[lang="ja"] .look-location,
+html[lang="ja"] .model-eyebrow,
+html[lang="ja"] .model-sizing,
+html[lang="ja"] .section-eyebrow,
+html[lang="ja"] .collection-eyebrow,
+html[lang="ja"] .product-price,
+html[lang="ja"] .product-sku,
+html[lang="ja"] .product-status,
+html[lang="ja"] .drawer-eyebrow,
+html[lang="ja"] .takeover-eyebrow,
+html[lang="ja"] .antecedent-year,
+html[lang="ja"] .antecedent-num,
+html[lang="ja"] .after-eyebrow,
+html[lang="ja"] .after-dates,
+html[lang="ja"] .appointments-image-caption,
+html[lang="ja"] .drawer-link-num {
+  font-family: var(--mono);
+}
+
+/* Hero headline — Japanese mincho, tighter line-height for display. */
+html[lang="ja"] .hero-headline {
+  font-family: var(--serif-ja);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  font-weight: 500;
+}
+
+html[lang="ja"] .hero-headline-accent em,
+html[lang="ja"] .hero-headline-accent {
+  font-family: var(--serif-ja);
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* Look & product names — serif mincho, display weight. */
+html[lang="ja"] .look-name,
+html[lang="ja"] .product-name,
+html[lang="ja"] .availability-title,
+html[lang="ja"] .after-title,
+html[lang="ja"] .drawer-title,
+html[lang="ja"] .takeover-title,
+html[lang="ja"] .antecedent-name,
+html[lang="ja"] .antecedents-title h1,
+html[lang="ja"] h1,
+html[lang="ja"] h2 {
+  font-family: var(--serif-ja);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+/* Italic accent lines (manifesto, lede) — mincho has no real italic;
+   use a slight weight shift and letter-spacing to signal editorial emphasis. */
+html[lang="ja"] em,
+html[lang="ja"] i,
+html[lang="ja"] .manifesto-coda-line,
+html[lang="ja"] .note-lede em,
+html[lang="ja"] .after-lede em,
+html[lang="ja"] .footer-closer em,
+html[lang="ja"] .antecedent-gloss em,
+html[lang="ja"] .interstitial p {
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+}
+
+/* Captions in lookbook — double-angle brackets rendered via content, so keep
+   the serif. Blockquote style still applies. */
+html[lang="ja"] .look-caption {
+  font-family: var(--serif-ja);
+  font-style: normal;
+  letter-spacing: 0.04em;
+}
+
+/* Product spec — slightly tighter for dense spec copy. */
+html[lang="ja"] .product-spec {
+  letter-spacing: 0.02em;
+  line-height: 1.85;
+}
+
+/* Atelier list bullets — mincho, looser. */
+html[lang="ja"] .atelier ul li,
+html[lang="ja"] .atelier-lede {
+  font-family: var(--serif-ja);
+  letter-spacing: 0.03em;
+  line-height: 1.9;
+}
+
+/* Model note and model name — preserve the editorial deadpan weight. */
+html[lang="ja"] .model-name,
+html[lang="ja"] .model-note {
+  font-family: var(--serif-ja);
+  letter-spacing: 0.03em;
+}
+
+/* Button / link copy in Japanese — slight tracking for legibility. */
+html[lang="ja"] .nav-index,
+html[lang="ja"] .drawer-close,
+html[lang="ja"] .takeover-close,
+html[lang="ja"] .takeover-submit,
+html[lang="ja"] .status-default,
+html[lang="ja"] .status-hover {
+  font-family: var(--mono);
+}
+
+/* Form inputs — body serif, generous tracking. */
+html[lang="ja"] .takeover-input,
+html[lang="ja"] .takeover-note {
+  font-family: var(--serif-ja);
+  letter-spacing: 0.04em;
+}
+
+/* Lang toggle in nav — both languages clickable, current muted. */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--mist);
+  line-height: 1;
+}
+
+.lang-toggle a {
+  color: var(--mist);
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.lang-toggle a:hover {
+  color: var(--ink);
+}
+
+.lang-toggle a[aria-current="true"] {
+  color: var(--ink);
+  pointer-events: none;
+}
+
+.lang-toggle .lang-sep {
+  opacity: 0.5;
+}
+
+/* Looser block spacing on Japanese for breath. */
+html[lang="ja"] .note p,
+html[lang="ja"] .atelier-lede,
+html[lang="ja"] .appointments-lede,
+html[lang="ja"] .availability-lede {
+  line-height: 2.0;
+}
+
+/* Drawer labels in Japanese. */
+html[lang="ja"] .drawer-link-name {
+  font-family: var(--serif-ja);
+  letter-spacing: 0.06em;
+}
+
+/* Masthead — the kanji strap should have more breathing room. */
+html[lang="ja"] .masthead-strap-jp {
+  font-family: var(--serif-ja);
+  letter-spacing: 0.28em;
+  font-size: 12px;
+  color: var(--mist);
+}

@@ -94,6 +94,29 @@ body {
   text-transform: uppercase;
   color: var(--ink);
   justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1;
+}
+
+.lang a {
+  color: var(--mist);
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.lang a:hover {
+  color: var(--ink);
+}
+
+.lang a[aria-current="true"] {
+  color: var(--ink);
+  pointer-events: none;
+}
+
+.lang .lang-sep {
+  opacity: 0.5;
 }
 
 .nav-index {
