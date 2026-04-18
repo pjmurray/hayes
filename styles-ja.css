@@ -94,10 +94,20 @@ html[lang="ja"] .note-lede em,
 html[lang="ja"] .after-lede em,
 html[lang="ja"] .footer-closer em,
 html[lang="ja"] .antecedent-gloss em,
+html[lang="ja"] .antecedents-epigraph p,
+html[lang="ja"] .antecedents-appendix-b .appendix-coda,
+html[lang="ja"] .antecedents-close p,
 html[lang="ja"] .interstitial p {
   font-style: normal;
   font-weight: 400;
   letter-spacing: 0.06em;
+}
+
+/* Antecedents — JA-specific family overrides for new blocks. */
+html[lang="ja"] .antecedents-epigraph p,
+html[lang="ja"] .antecedents-appendix-b li,
+html[lang="ja"] .antecedent-meta dd {
+  font-family: var(--serif-ja);
 }
 
 /* Captions in lookbook — double-angle brackets rendered via content, so keep
