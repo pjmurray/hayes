@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://hayes.press/</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hayes.press/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://hayes.press/ja" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hayes.press/" />
+  </url>
+
+  <url>
+    <loc>https://hayes.press/antecedents</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hayes.press/antecedents" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://hayes.press/ja/antecedents" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hayes.press/antecedents" />
+  </url>
+
+  <url>
+    <loc>https://hayes.press/cast</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hayes.press/cast" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://hayes.press/ja/cast" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hayes.press/cast" />
+  </url>
+
+  <url>
+    <loc>https://hayes.press/colophon</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hayes.press/colophon" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://hayes.press/ja/colophon" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hayes.press/colophon" />
+  </url>
+
+  <url>
+    <loc>https://hayes.press/privacy</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hayes.press/privacy" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://hayes.press/ja/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hayes.press/privacy" />
+  </url>
+
+  <url>
+    <loc>https://hayes.press/ja</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hayes.press/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://hayes.press/ja" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hayes.press/" />
+  </url>
+
+  <url>
+    <loc>https://hayes.press/ja/antecedents</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hayes.press/antecedents" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://hayes.press/ja/antecedents" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hayes.press/antecedents" />
+  </url>
+
+  <url>
+    <loc>https://hayes.press/ja/cast</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hayes.press/cast" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://hayes.press/ja/cast" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hayes.press/cast" />
+  </url>
+
+  <url>
+    <loc>https://hayes.press/ja/colophon</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hayes.press/colophon" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://hayes.press/ja/colophon" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hayes.press/colophon" />
+  </url>
+
+  <url>
+    <loc>https://hayes.press/ja/privacy</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hayes.press/privacy" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://hayes.press/ja/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hayes.press/privacy" />
+  </url>
+
+</urlset>

@@ -1,0 +1,160 @@
+/* =========================================================
+   HAYES — Colophon
+   Appendix C. The record of how the record was kept.
+   ========================================================= */
+
+.colophon-body main {
+  padding-bottom: clamp(96px, 14vh, 160px);
+}
+
+.colophon-title {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: clamp(64px, 10vh, 120px) var(--pad-x) clamp(48px, 7vh, 88px);
+  text-align: center;
+}
+
+.colophon-title h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-variation-settings: 'opsz' 144;
+  font-size: clamp(56px, 9vw, 120px);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.colophon-title .hero-stop {
+  display: inline-block;
+  transform: translateY(-0.04em);
+}
+
+.colophon-lede {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(18px, 1.6vw, 22px);
+  line-height: 1.55;
+  color: var(--mist);
+  max-width: 44ch;
+  margin: clamp(32px, 4vw, 48px) auto 0;
+  text-wrap: balance;
+  font-variation-settings: 'opsz' 72;
+}
+
+.colophon-content {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+}
+
+.colo-block {
+  padding: clamp(32px, 4vw, 48px) 0;
+  border-top: 1px solid var(--divider);
+}
+
+.colo-block:last-child {
+  border-bottom: 1px solid var(--divider);
+}
+
+.colo-eyebrow {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mist);
+  margin: 0 0 clamp(20px, 2.5vw, 28px);
+}
+
+.colo-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px 0;
+  margin: 0;
+}
+
+.colo-list > div {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 24px;
+  align-items: baseline;
+}
+
+.colo-list dt {
+  font-family: var(--sans);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--mist);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.colo-list dd {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(15px, 1.4vw, 18px);
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 0;
+  font-variation-settings: 'opsz' 72;
+}
+
+.colo-list dd a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--divider);
+  transition: border-color 200ms ease;
+}
+
+.colo-list dd a:hover { border-bottom-color: var(--ink); }
+
+.swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid var(--divider);
+  flex: 0 0 auto;
+}
+
+@media (max-width: 600px) {
+  .colo-list > div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
+
+/* Closing */
+.colophon-close {
+  max-width: 720px;
+  margin: clamp(72px, 10vh, 120px) auto 0;
+  padding: 0 var(--pad-x);
+  text-align: center;
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--mist);
+  font-size: clamp(15px, 1.4vw, 18px);
+  line-height: 1.6;
+  font-variation-settings: 'opsz' 72;
+}
+
+.colophon-close p { margin: 0 0 12px; }
+
+.colophon-close a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--divider);
+}
+
+.colophon-close a:hover { border-bottom-color: var(--ink); }
+
+.colophon-back {
+  margin-top: clamp(32px, 5vh, 56px) !important;
+  font-style: normal;
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
